@@ -1,0 +1,98 @@
+body {
+	font-size: 1em;
+	background: #000;
+	line-height: 1.2em;
+}
+@font-face {
+    font-family: 'League Gothic';
+    src: url('../fonts/leaguegothic-regular-webfont.eot');
+    src: url('../fonts/leaguegothic-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/leaguegothic-regular-webfont.woff') format('woff'),
+         url('../fonts/leaguegothic-regular-webfont.ttf') format('truetype'),
+         url('../fonts/leaguegothic-regular-webfont.svg#league_gothicregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+/*TEMPLATE DEFAULT*/
+.container{
+	padding-right: 15px;
+    padding-left: 15px;
+    margin: 0 auto;
+}
+.text-center {
+	text-align: center;
+}
+.top {
+	padding: .8em 0em;
+}
+.slider-image {
+  background-image: url("../img/slider.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 372px;
+  padding: 3em;
+}
+.slider-image h1 {
+  font-family: 'League Gothic';
+ color: #fff;
+ font-size: 4em;
+ line-height: 1.3em;
+ text-transform: uppercase;
+ text-shadow: 3px 3px 3px #000;
+}
+.slider-image p {
+  font-family: 'League Gothic';
+  font-size: 1.5em;
+  text-transform: uppercase;
+  background: -webkit-linear-gradient(#ffc000,#c67900);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 1px #000;
+
+}
+.steps {
+  background-image: url("../img/steps.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 102px;
+}
+.steps-border {
+  background-image: url("../img/zig-zag-line.png");
+  background-position: right;
+  background-repeat: no-repeat;
+}
+.top-steps {
+  padding: 1.2em 0em;
+}
+ h3{
+  color: #fff;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+/*info blocks text*/
+h4 {
+	font-size: 1.3em;
+  line-height: 1.3em;
+  padding: 1em;
+	font-weight: bold;
+	color: #d7bc0c;
+}
+.info-blocks-div {
+	background-image: url("../img/line-border.png");
+ 	background-position: right;
+ 	background-repeat: no-repeat;
+}
+
+/*MEDIA QUEERIS*/
+@media (min-width: 768px) {
+
+}
+@media (min-width: 992px) {
+
+}
+@media (min-width: 1200px) {
+
+}
