@@ -112,7 +112,7 @@
 
             var tempr = data.main.temp;
             var location = data.name;
-            var desc = data.weather.description;
+            var desc = data.weather[0].description;
             
 
             $('#result').text(tempr + '°' + desc + location);
