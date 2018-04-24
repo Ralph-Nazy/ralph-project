@@ -61,9 +61,22 @@
       <h4>Amazing accommodation</h4>
       <img src="img/btn-accomodation.png">
     </div>
-    <div class="small-12 medium-3 text-center">
+     <div class="small-12 medium-3 text-center" style="background:#fff;">
       <h4>Car hire at a great price</h4>
       <img src="img/car-hire.png">
+      <div class="wrapper"> 
+    <!-- A wrapper for CSS-design -->
+    <h2>Weather Application in jQuery</h2>
+    <p>What temperature is it at your <span class='italic'>exact</span> location? Click the button and find out!
+    </p>
+    <!-- Some fancy text -->
+    
+    <!-- Here we will show the final result -->
+    <p id="result">? °</p>
+
+    <!-- Simple button -->
+    <button id="showTemp">Submit</button>  
+  </div>
     </div>
   </div>
   </div>
@@ -73,24 +86,48 @@
     <script src="js/vendor/foundation.js"></script>
     <script src="js/app.js"></script>
     <script>
-     $(document).ready(function() {
+      $(document).ready(function () {
+  var lat, lon, api_url;
+  
+  if ("geolocation" in navigator) {
+    
+    $('#showTemp').on('click', function () {
+       navigator.geolocation.getCurrentPosition(gotLocation);
 
-        $.getJSON('http://ip-api.com/json', getWeather)
-    })
+      function gotLocation(position) {
+        lat = position.coords.latitude;
+        lon = position.coords.longitude;
+        
+        api_url = 'http://api.openweathermap.org/data/2.5/weather?lat=' +
+                  lat + '&lon=' + 
+                  lon + '&units=metric&appid=b231606340553d9174136f7f083904b3';
+       // http://api.openweathermap.org/data/2.5/weather?q=London,uk&callback=test&appid=b1b15e88fa79722
+        
+        $.ajax({
+          url : api_url,
+          method : 'GET',
+          success : function (data) {
+            
 
-      var getWeather = function(data) {
-    $.getJSON('http://api.openweathermap.org/data/2.5/weather', {
-        lat: data.lat,
-        lon: data.lon,
-        appid: "b27fb5354b8bfedc0c63774fc598d928"
-    }, showWeather, 'jsonp');
-};
 
-  var showWeather = function(data) {
-    $("#temperature").text(data.main.temp)
-    $("#description").text(data.weather[0].description)
-    $("#location").text(data.name)
-  };
+            var tempr = data.main.temp;
+            var location = data.name;
+            var desc = data.weather.description;
+            
+
+            $('#result').text(tempr + '°' + location);
+
+          }
+        });
+     }
+    });
+    
+  } else {
+    alert('Your browser doesnt support geolocation. Sorry.');
+  }
+  
+});
+
     </script>
   </body>
 </html>
