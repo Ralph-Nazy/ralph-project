@@ -98,10 +98,10 @@
         lat = position.coords.latitude;
         lon = position.coords.longitude;
         
-        api_url = 'https://api.openweathermap.org/data/2.5/weather?lat=' +
+        api_url = 'https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?lat=' +
                   lat + '&lon=' + 
-                  lon + '&units=metric&appid=b231606340553d9174136f7f083904b3';
-       // http://api.openweathermap.org/data/2.5/weather?q=London,uk&callback=test&appid=b1b15e88fa79722
+                  lon + '&units=metric&appid=b27fb5354b8bfedc0c63774fc598d928';
+       // https://api.openweathermap.org/data/2.5/weather?q=London,uk&callback=test&appid=b1b15e88fa79722
         
         $.ajax({
           url : api_url,
