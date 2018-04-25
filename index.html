@@ -11,72 +11,64 @@
   <body>
     <section class="top">
   <div class="grid-container">
-    <img src="img/logo.png">
+    <img src="img/logo.png" class="logo">
   </div>
 </section>
 <section class="slider-image">
   <div class="grid-container">
-    <div class="grid-x margin-x">
-    <div class="cell medium-5 small-12 text-center">
+    <div class="grid-x grid-margin-x">
+    <div class="cell large-5 medium-6 small-12 text-center">
       <h1>Your dream holiday awaits</h1>
-      <p>Book the holiday of a lifetime now!</p>
+      <p class="slider-text">Book the holiday of a lifetime now!</p>
+      <button class="book-now">Book Now</button><button class="more-info">More Info</button>
     </div> 
-    <div class="cell medium-4"></div>
-    <div class="cell medium-3 small-12 text-center end">
-      <div id="location"></div>
-      <div id="temperature"></div>
-      <div id="description"></div>
+    <div class="cell large-4 medium-4 hide-for-medium-only"></div>
+    <div class="cell large-3 medium-6 small-12 text-center end">
+      <div class="loc">
+        <h4 id="location">Johannesburg</h4>
+        <span id="description">Cloud</span>
+      </div>
+      <div class="temp">
+        <h2 id="temperature">12°C</h2>
+      </div>
+      <div class="weather-footer">
+        <a href="http://openweathermap.org/" target="_blank" class="footer-link">OpenWeatherMap</a>
+      </div>
     </div>     
   </div>
 </section>
 <section class="steps">
   <div class="grid-container">
      <div class="grid-x grid-padding-x">
-    <div class="cell medium-4 small-12 text-center top-steps steps-border">
-      <img src="img/1.png" class="show-for-small-only">
-      <h3> <img src="img/1.png" class="hide-for-small-only"> Book your flights</h3>
+    <div class="cell large-4 medium-12 small-12 text-center top-steps steps-border">
+      <h3> <img src="img/1.png" class="show-for-medium-up"> Book your flights</h3>
    </div>
-   <div class="cell medium-4 small-12 text-center top-steps steps-border">
-    <img src="img/2.png" class="show-for-small-only">
-    <h3><img src="img/2.png" class="hide-for-small-only">Book your destination</h3>
+   <div class="cell large-4 medium-12 small-12 text-center top-steps steps-border">
+    <h3><img src="img/2.png" class="show-for-medium-up">Book your destination</h3>
    </div>
-   <div class="cell medium-4 small-12 top-steps text-center">
-    <img src="img/3.png" class="show-for-small-only">
-    <h3> <img src="img/3.png" class="hide-for-small-only"> Book car hire</h3>
+   <div class="cell large-4 medium-12 small-12 top-steps text-center">
+    <h3> <img src="img/3.png" class="show-for-medium-up"> Book car hire</h3>
    </div>
    </div>
 </section>
 <section class="info-blocks">
   <div class="grid-container">
     <div class="grid-x grid-padding-x">
-    <div class="cell small-12 medium-3 text-center info-blocks-div">
+    <div class="cell small-12 medium-6 large-3  text-center info-blocks-div">
       <h4>Cheapest Flights</h4>
       <img src="img/cheap-flights.png">
     </div>
-    <div class="small-12 medium-3 text-center info-blocks-div">
+    <div class="small-12 medium-6 large-3  text-center info-blocks-div-last">
       <h4>Great prices</h4>
       <img src="img/cheap-prices.png" id="btn">
     </div>
-    <div class="small-12 medium-3 text-center info-blocks-div">
+    <div class="small-12 medium-6 large-3  text-center info-blocks-div">
       <h4>Amazing accommodation</h4>
       <img src="img/btn-accomodation.png">
     </div>
-     <div class="small-12 medium-3 text-center" style="background:#fff;">
+     <div class="small-12 medium-6 large-3 text-center">
       <h4>Car hire at a great price</h4>
       <img src="img/car-hire.png">
-      <div class="wrapper"> 
-    <!-- A wrapper for CSS-design -->
-    <h2>Weather Application in jQuery</h2>
-    <p>What temperature is it at your <span class='italic'>exact</span> location? Click the button and find out!
-    </p>
-    <!-- Some fancy text -->
-    
-    <!-- Here we will show the final result -->
-    <p id="result">? °</p>
-
-    <!-- Simple button -->
-    <button id="showTemp">Submit</button>  
-  </div>
     </div>
   </div>
   </div>
@@ -90,8 +82,7 @@
   var lat, lon, api_url;
   
   if ("geolocation" in navigator) {
-    
-    $('#showTemp').on('click', function () {
+
        navigator.geolocation.getCurrentPosition(gotLocation);
 
       function gotLocation(position) {
@@ -101,7 +92,6 @@
         api_url = 'https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?lat=' +
                   lat + '&lon=' + 
                   lon + '&units=metric&appid=b27fb5354b8bfedc0c63774fc598d928';
-       // https://api.openweathermap.org/data/2.5/weather?q=London,uk&callback=test&appid=b1b15e88fa79722
         
         $.ajax({
           url : api_url,
@@ -114,13 +104,13 @@
             var location = data.name;
             var desc = data.weather[0].description;
             
-
-            $('#result').text(tempr + '°' + desc + location);
+            $("#location").text(location);
+            $("#temperature").text(tempr + '°C');
+            $("#description").text(desc);
 
           }
         });
      }
-    });
     
   } else {
     alert('Your browser doesnt support geolocation. Sorry.');
