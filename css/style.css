@@ -62,6 +62,25 @@ h2#temperature {
 .top {
 	padding: .8em 0em;
 }
+button {
+    width: 139px;
+    height: 45px;
+    text-transform: uppercase;
+    color: #fff;
+}
+.book-now {
+  background: url("../img/btn-book.png");
+  background-repeat: no-repeat;
+  width: 139px;
+  height: 45px;
+}
+.more-info {
+  background: url("../img/btn-more-info.png");
+  background-repeat: no-repeat;
+  margin-left: .7em;
+  width: 139px;
+  height: 45px;
+}
 .steps-top {display: none;}
 .slider-image {
   background-image: url("../img/slider.png");
@@ -112,7 +131,6 @@ h2#temperature {
   font-size: 1.25em;
   font-weight: bold;
 }
-/*info blocks text*/
 h4 {
 	font-size: 1.3em;
   line-height: 1.3em;
@@ -130,25 +148,7 @@ h4 {
   background-position: right;
   background-repeat: no-repeat;
 }
-button {
-    width: 139px;
-    height: 45px;
-    text-transform: uppercase;
-    color: #fff;
-}
-.book-now {
-  background: url("../img/btn-book.png");
-  background-repeat: no-repeat;
-  width: 139px;
-  height: 45px;
-}
-.more-info {
-  background: url("../img/btn-more-info.png");
-  background-repeat: no-repeat;
-  margin-left: .7em;
-  width: 139px;
-  height: 45px;
-}
+
 
 /*MEDIA QUEERIS*/
 @media only screen and (max-width: 64em) {
@@ -157,6 +157,7 @@ button {
 .more-info {margin-left: 0em; margin-top: .3em; }
 .logo{padding: 0;}
 .steps-top {display: block; text-align: center;}
+.slider-image h1 {font-size: 4em;}
 .slider-image p {margin-bottom: 1.5em;}
 .info-blocks-div-last {background: none;}
    }
